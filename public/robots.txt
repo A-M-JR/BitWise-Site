@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# (Opcional) Não permitir rastrear páginas internas de admin, se existirem
+Disallow: /admin/
+Disallow: /login/
+
+Sitemap: https://bitwiseagency.com/sitemap.xml
+
+# (Opcional) Polidez de crawl — recomendação para crawlers, pode ser ignorado por alguns:
+Crawl-delay: 2
+
+# (Opcional) Informar quem é responsável pelo site
+# Host: bitwiseagency.com
