@@ -5,9 +5,11 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Lightbulb, Code, Database, LineChart } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useRouter } from "next/navigation" 
 
 export default function Hero() {
   const circuitRef = useRef<SVGSVGElement>(null)
+  const router = useRouter() 
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,6 +30,18 @@ export default function Hero() {
       elements.forEach((el) => observer.unobserve(el))
     }
   }, [])
+
+  const handleRequestQuoteClick = () => {
+    window.open(
+      // URL do WhatsApp com a mensagem ajustada
+      "https://wa.me/5545999403598?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20da%20BitWise%20Agency.",
+      "_blank"
+    )
+  }
+
+  const handleContactClick = () => {
+    router.push('/#contato') 
+  }
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden circuit-pattern">
@@ -84,12 +98,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <Button
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/5545999403598?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento.",
-                    "_blank"
-                  )
-                }
+                onClick={handleRequestQuoteClick} // <-- 5. Chame a função do WhatsApp aqui
                 size="lg"
                 className="bg-secondary hover:bg-secondary/90 text-black font-semibold transition-all group"
               >
@@ -97,6 +106,7 @@ export default function Hero() {
                 Solicitar Orçamento
               </Button>
               <Button
+                onClick={handleContactClick} // <-- 6. Chame a função de Fale Conosco aqui
                 size="lg"
                 variant="outline"
                 className="border-secondary text-secondary hover:bg-secondary/10 transition-colors"

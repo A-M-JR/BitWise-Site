@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from "next/image"
+// REMOVER: import { useRouter } from "next/navigation" // Não precisamos mais do useRouter aqui
 
 const testimonials = [
   {
@@ -17,17 +18,17 @@ const testimonials = [
     result: "+35% receita",
   },
   {
-    name: "Ana Oliveira", 
+    name: "Ana Oliveira",
     company: "Inova Digital",
     role: "Diretora de Marketing",
     content: "O sistema de CRM desenvolvido aumentou nossas conversões em 40%. Equipe extremamente profissional!",
     rating: 5,
-    image: "/placeholder.svg?height=60&width=60", 
+    image: "/placeholder.svg?height=60&width=60",
     result: "+40% conversões",
   },
   {
     name: "Roberto Mendes",
-    company: "Global Tech", 
+    company: "Global Tech",
     role: "Gerente de TI",
     content: "As soluções de BI nos permitiram identificar oportunidades que antes passavam despercebidas.",
     rating: 5,
@@ -38,6 +39,7 @@ const testimonials = [
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0)
+  // REMOVER: const router = useRouter() // Esta linha não é mais necessária
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,6 +55,14 @@ export default function Testimonials() {
   const prevTestimonial = () => {
     setActiveIndex((current) => (current - 1 + testimonials.length) % testimonials.length)
   }
+
+  const handleRequestQuoteClick = useCallback(() => {
+    const phoneNumber = "5545999403598" 
+    const message = "Olá! Gostaria de solicitar um orçamento para desenvolvimento de landing page." // Mensagem pré-preenchida
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+  }, []) 
 
   const currentTestimonial = testimonials[activeIndex]
 
@@ -127,9 +137,8 @@ export default function Testimonials() {
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
-                      className={`h-2 rounded-full transition-all ${
-                        index === activeIndex ? "bg-secondary w-8" : "bg-foreground/30 w-2"
-                      }`}
+                      className={`h-2 rounded-full transition-all ${index === activeIndex ? "bg-secondary w-8" : "bg-foreground/30 w-2"
+                        }`}
                       onClick={() => setActiveIndex(index)}
                     />
                   ))}
@@ -158,7 +167,11 @@ export default function Testimonials() {
             <p className="text-foreground/80 mb-6">
               Junte-se a essas empresas que já transformaram seus resultados.
             </p>
-            <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-black font-semibold">
+            <Button
+              size="lg"
+              className="bg-secondary hover:bg-secondary/90 text-black font-semibold"
+              onClick={handleRequestQuoteClick} // O onClick continua chamando a função
+            >
               Solicitar Orçamento
             </Button>
           </div>

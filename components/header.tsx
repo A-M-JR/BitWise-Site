@@ -67,7 +67,8 @@ export default function Header() {
             className="group"
             onClick={() =>
               window.open(
-                "https://wa.me/5545999403598?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento.",
+                // URL do WhatsApp com a mensagem ajustada
+                "https://wa.me/5545999403598?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20da%20BitWise%20Agency.",
                 "_blank"
               )
             }
