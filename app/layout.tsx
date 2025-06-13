@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "BitWise Agency",
     images: [
       {
-        url: "https://www.bitwiseagency.com.br/images/images/og-bitwise.png",
+        url: "https://www.bitwiseagency.com.br/images/og-bitwise.png",
         width: 1200,
         height: 630,
         alt: "BitWise Agency - Soluções em Tecnologia",
@@ -78,11 +78,6 @@ export const metadata: Metadata = {
   },
 
   category: "Tecnologia da Informação",
-
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0A0118" },
-    { media: "(prefers-color-scheme: dark)", color: "#0A0118" }
-  ],
 
   applicationName: "BitWise Agency",
 
@@ -129,6 +124,13 @@ export const metadata: Metadata = {
   }
 };
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0A0118" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0118" }
+  ],
+
+}
 
 export default function RootLayout({
   children,
