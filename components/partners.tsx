@@ -3,10 +3,9 @@
 import { useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Heart, Gem, Users, Star } from "lucide-react"
+import { ExternalLink, Heart, Gem, Users, Star, Baby } from "lucide-react"
 import Image from "next/image"
 
-// Empresas parceiras - Sites desenvolvidos pela BitWise
 const partnerSites = [
   {
     title: "Legado & Conforto",
@@ -15,14 +14,15 @@ const partnerSites = [
     fullDescription:
       "Somos a Empresa Legado&Conforto e aqui lhe apresentamos carinhosamente um dos nossos produtos: APP Legado. Mais do que um aplicativo, somos uma plataforma que conecta memórias, emoções e pessoas. O APP LEGADO permite que famílias e amigos registrem fotos e mensagens de momentos especiais, criando um memorial digital que mantém viva a presença de quem foi importante para você.",
     url: "https://legadoeconforto.com.br/",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/projetos/legado-degrade.png",
     category: "Plataforma Digital",
     icon: Heart,
-    color: "text-red-400",
-    bgColor: "bg-red-400/10",
-    borderColor: "border-red-400/20",
+    color: "text-emerald-700",
+    bgColor: "bg-emerald-400/10",
+    borderColor: "border-emerald-600",
     tech: ["React", "Node.js", "MongoDB", "AWS"],
     results: ["Memorial Digital Inovador", "Interface Intuitiva", "Segurança de Dados", "Experiência Emocional"],
+    imageAspect: "aspect-[4/3]", // Mantive 4/3 para Legado & Conforto.
   },
   {
     title: "JPB Joias",
@@ -30,7 +30,7 @@ const partnerSites = [
     fullDescription:
       "Loja online especializada em vender joias com foco na experiência do cliente e apresentação premium dos produtos. Desenvolvemos uma plataforma que destaca a beleza e qualidade das peças, com navegação intuitiva e processo de compra otimizado.",
     url: "https://jpbjoias.com.br/",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/images/projetos/jpb.png",
     category: "E-commerce",
     icon: Gem,
     color: "text-yellow-400",
@@ -38,7 +38,29 @@ const partnerSites = [
     borderColor: "border-yellow-400/20",
     tech: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
     results: ["Aumento nas Vendas", "UX Premium", "Catálogo Otimizado", "Checkout Simplificado"],
+    imageAspect: "aspect-[4/3]", // Mudei para 4/3. Para a JPB Joias, 1:1 pode ser bom se o logo é quadrado. Teste se 4/3 ou 1/1 funciona melhor para o visual do logo dentro da imagem.
   },
+  {
+    title: "Brinque Brinque",
+    description: "Plataforma de brinquedos educativos com impacto social real.",
+    fullDescription:
+      "A Brinque Brinque conecta famílias e profissionais da infância a brinquedos com curadoria pedagógica. Com foco no desenvolvimento infantil e propósito educativo, a loja oferece uma experiência de compra afetuosa, acessível e com alto valor percebido.",
+    url: "https://www.brinquebrinque.com.br/",
+    image: "/images/projetos/brinquebrinque.png",
+    category: "Educação Infantil",
+    icon: Baby,
+    color: "text-red-400",
+    bgColor: "bg-red-400/10",
+    borderColor: "border-red-400/20",
+    tech: ["Next.js", "Tailwind CSS", "Supabase", "Stripe"],
+    results: [
+      "Vitrine com curadoria pedagógica",
+      "Checkout simples e funcional",
+      "Aumento da conversão por propósito",
+      "Expansão para modelo de afiliados",
+    ],
+    imageAspect: "aspect-[4/3]", // Mantive 4/3 para Brinque Brinque.
+  }
 ]
 
 const achievements = [
@@ -123,104 +145,82 @@ export default function Partners() {
                 </div>
                 <div className="text-2xl font-bold mb-1 text-secondary">{achievement.number}</div>
                 <div className="font-medium mb-1">{achievement.label}</div>
-                <div className="text-sm text-foreground/70">{achievement.description}</div>
+                <div className="text-sm text-foreground/90">{achievement.description}</div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Sites dos Parceiros */}
-        <div className="space-y-12">
+        {/* Sites dos Parceiros - NOVO LAYOUT MAIS COMPACTO */}
+        {/* Usando um grid responsivo para cards menores */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {partnerSites.map((site, index) => (
             <Card
               key={index}
-              className={`partner-card border ${site.borderColor} ${site.bgColor} backdrop-blur-sm hover:border-primary/50 transition-all duration-300 opacity-0 overflow-hidden`}
-              data-delay={300 + index * 200}
+              // Removido `overflow-hidden` do card para que o hover da imagem funcione sem cortar
+              className={`partner-card border ${site.borderColor} ${site.bgColor} backdrop-blur-sm hover:border-primary/50 transition-all duration-300 opacity-0`}
+              data-delay={300 + index * 150} // Ajustei o delay para animações sequenciais
             >
-              <CardContent className="p-0">
-                <div
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-0 ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
-                >
-                  {/* Imagem */}
-                  <div className={`relative overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <Image
-                      src={site.image || "/placeholder.svg"}
-                      alt={site.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-64 lg:h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute top-4 right-4">
-                      <Button
-                        size="sm"
-                        className="bg-white/20 backdrop-blur-sm hover:bg-white/30"
-                        onClick={() => window.open(site.url, "_blank")}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Conteúdo */}
-                  <div className={`p-8 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`p-2 rounded-lg ${site.bgColor}`}>
-                        <site.icon className={`h-6 w-6 ${site.color}`} />
-                      </div>
-                      <div>
-                        <span className={`text-sm ${site.color} font-medium`}>{site.category}</span>
-                        <h3 className="text-2xl font-bold">{site.title}</h3>
-                      </div>
-                    </div>
-
-                    <p className="text-foreground/80 mb-4 text-lg">{site.description}</p>
-
-                    <p className="text-foreground/70 mb-6 text-sm leading-relaxed">{site.fullDescription}</p>
-
-                    {/* Tecnologias */}
-                    <div className="mb-6">
-                      <h4 className="font-semibold mb-2">Tecnologias Utilizadas:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {site.tech.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className={`px-3 py-1 ${site.bgColor} ${site.color} text-xs rounded-full border ${site.borderColor}`}
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Resultados */}
-                    <div className="mb-6">
-                      <h4 className="font-semibold mb-2">Resultados Alcançados:</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {site.results.map((result, resultIndex) => (
-                          <div key={resultIndex} className="flex items-center gap-2">
-                            <div className={`w-2 h-2 ${site.color.replace("text-", "bg-")} rounded-full`} />
-                            <span className="text-sm text-foreground/80">{result}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
+              {/* Ajustei o padding do CardContent e adicionei flex-col para layout vertical */}
+              <CardContent className="p-4 flex flex-col h-full">
+                {/* Contêiner da imagem com aspect-ratio para proporção */}
+                <div className={`relative ${site.imageAspect || "aspect-[4/3]"} overflow-hidden rounded-md mb-4`}>
+                  {/* Image do Next.js agora dentro de um contêiner com proporção */}
+                  <Image
+                    src={site.image || "/placeholder.svg"}
+                    alt={site.title}
+                    // Definindo width e height para otimização do Next.js.
+                    // Para 4:3, um bom par pode ser 1200x900, 800x600, etc.
+                    // O importante é que a proporção 4/3 seja mantida aqui para otimização.
+                    width={1200}
+                    height={900}
+                    // w-full h-full para preencher o div pai com aspect-ratio
+                    // object-cover para evitar distorção e cortar o excesso
+                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                  {/* Gradiente e Botão de Link no topo da imagem */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute top-2 right-2">
                     <Button
-                      className={`bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity`}
+                      size="sm"
+                      className="bg-white/20 backdrop-blur-sm hover:bg-white/30"
                       onClick={() => window.open(site.url, "_blank")}
                     >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Visitar Site
+                      <ExternalLink className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
+
+                {/* Bloco de Informações do Card */}
+                {/* Icone e Categoria */}
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`p-1.5 rounded-lg ${site.bgColor}`}>
+                    <site.icon className={`h-5 w-5 ${site.color}`} />
+                  </div>
+                  <span className={`text-xs ${site.color} font-medium`}>{site.category}</span>
+                </div>
+                {/* Título */}
+                <h3 className="text-lg font-bold mb-2">{site.title}</h3>
+                {/* Descrição - usando line-clamp para limitar a 2 linhas e manter altura consistente */}
+                <p className="text-sm text-foreground/70 mb-4 line-clamp-2">{site.description}</p>
+
+                {/* Botão Visitar Site - com mt-auto para alinhar na parte inferior */}
+                <Button
+                  className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity mt-auto"
+                  size="sm" // Tamanho menor para o botão no card compacto
+                  onClick={() => window.open(site.url, "_blank")}
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Visitar
+                </Button>
+                {/* Removido Tecnologias e Resultados detalhados para o card compacto */}
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action (mantido igual) */}
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-8 rounded-lg border border-white/10 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">
