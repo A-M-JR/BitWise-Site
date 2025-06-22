@@ -66,7 +66,7 @@ const partnerSites = [
 const achievements = [
   {
     icon: Users,
-    number: "2",
+    number: "3",
     label: "Empresas Parceiras",
     description: "Sites desenvolvidos e em funcionamento",
   },
@@ -78,7 +78,7 @@ const achievements = [
   },
   {
     icon: ExternalLink,
-    number: "2",
+    number: "3",
     label: "Sites Ativos",
     description: "Projetos online gerando resultados",
   },
