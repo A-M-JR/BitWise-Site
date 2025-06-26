@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Head from "next/head"
+import Script from "next/script"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -133,17 +133,18 @@ export const viewport = {
 
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <Head>
+      <head>
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SHBLYXKTF"></script>
-        <script
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3SHBLYXKTF"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -153,7 +154,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </Head>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
