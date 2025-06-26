@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Head from "next/head"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -139,6 +140,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SHBLYXKTF"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3SHBLYXKTF');
+            `,
+          }}
+        />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   )
