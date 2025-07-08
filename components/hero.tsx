@@ -98,20 +98,12 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <Button
-                onClick={handleRequestQuoteClick} // <-- 5. Chame a função do WhatsApp aqui
+                onClick={handleRequestQuoteClick} // <-- Chame a função do WhatsApp aqui
                 size="lg"
                 className="bg-secondary hover:bg-secondary/90 text-black font-semibold transition-all group"
               >
                 <Lightbulb className="mr-2 h-4 w-4 group-hover:animate-pulse" />
                 Solicitar Orçamento
-              </Button>
-              <Button
-                onClick={handleContactClick} // <-- 6. Chame a função de Fale Conosco aqui
-                size="lg"
-                variant="outline"
-                className="border-secondary text-secondary hover:bg-secondary/10 transition-colors"
-              >
-                Fale Conosco
               </Button>
             </div>
 
