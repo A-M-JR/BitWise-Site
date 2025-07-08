@@ -258,13 +258,6 @@ export default function About() {
                   </p>
                 </div>
               </div>
-
-              <div className="mt-8">
-                <Button className="bg-secondary hover:bg-secondary/90 text-black font-semibold transition-all group">
-                  <Lightbulb className="mr-2 h-4 w-4 group-hover:animate-pulse" />
-                  Conheça Nossos Vendedores
-                </Button>
-              </div>
             </div>
           </div>
         </div>
