@@ -20,7 +20,7 @@ export default function Home() {
       <Partners />
       <About />
       <Features />
-      <Testimonials />
+      //<Testimonials />
       <Contact />
       <Footer />
       <WhatsAppButton />
