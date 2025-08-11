@@ -5,11 +5,11 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Lightbulb, Code, Database, LineChart } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useRouter } from "next/navigation" 
+import { useRouter } from "next/navigation"
 
 export default function Hero() {
   const circuitRef = useRef<SVGSVGElement>(null)
-  const router = useRouter() 
+  const router = useRouter()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,7 +40,7 @@ export default function Hero() {
   }
 
   const handleContactClick = () => {
-    router.push('/#contato') 
+    router.push('/#contato')
   }
 
   return (
@@ -106,8 +106,25 @@ export default function Hero() {
                 Solicitar Orçamento
               </Button>
             </div>
+            {/* <div className="flex items-center gap-4 pt-4">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className={cn(
+                      "w-10 h-10 rounded-full border-2 border-background",
+                      i % 2 === 0 ? "bg-primary" : "bg-secondary",
+                    )}
+                  />
+                ))}
+              </div>
+              <p className="text-sm text-foreground/70">
+                <span className="font-bold text-foreground">+100</span> clientes satisfeitos
+              </p>
+            </div> */}
+          </div>
 
-        <div className="relative animate-on-scroll">
+          <div className="relative animate-on-scroll">
             <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-30 animate-pulse-slow" />
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 flex items-center justify-center">
