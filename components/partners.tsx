@@ -47,17 +47,17 @@ const partnerSites = [
       "A Carmax Baterias é uma empresa de alta tecnologia no ramo automotivo, especializada em produtos de ponta, como baterias de última geração, som automotivo e alarmes. Sua plataforma digital é uma vitrine para seus serviços e um ponto de contato para a excelência automotiva.",
     url: "https://www.carmaxbaterias.com.br/",
     image: "/images/projetos/carmax-logo.jpg",
-    category: "Automotivo", // Alterei a categoria
-    icon: 'Bolt', // Altere o ícone para Bolt
-    color: "text-yellow-500", // Nova cor baseada em Carmax
-    bgColor: "bg-yellow-500/10", // Nova cor de fundo
-    borderColor: "border-yellow-500/20", // Nova cor da borda
+    category: "Automotivo", 
+    icon: 'Bolt', 
+    color: "text-yellow-500", 
+    bgColor: "bg-yellow-500/10", 
+    borderColor: "border-yellow-500/20", 
     tech: ["Next.js", "Tailwind CSS", "Supabase", "Stripe"],
     results: [
-      "Vitrine de Produtos Otimizada", // Novo resultado
-      "Aumento na Geração de Leads", // Novo resultado
-      "Presença Digital Forte", // Novo resultado
-      "Comunicação Direta com o Cliente", // Novo resultado
+      "Vitrine de Produtos Otimizada", 
+      "Aumento na Geração de Leads", 
+      "Presença Digital Forte", 
+      "Comunicação Direta com o Cliente", 
     ],
     imageAspect: "aspect-[4/3]",
   }
