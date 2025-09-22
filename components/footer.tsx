@@ -120,6 +120,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="https://carmaxbaterias.com.br/"
+                  target="_blank"
+                  className="text-foreground/70 hover:text-primary transition-colors"
+                >
+                  Carmax Baterias
+                </Link>
+              </li>
+              
+              <li>
                 <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">
                   Seja Nosso Parceiro
                 </Link>

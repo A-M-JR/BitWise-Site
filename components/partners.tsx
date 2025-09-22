@@ -40,26 +40,26 @@ const partnerSites = [
     results: ["Aumento nas Vendas", "UX Premium", "Catálogo Otimizado", "Checkout Simplificado"],
     imageAspect: "aspect-[4/3]", // Mudei para 4/3. Para a JPB Joias, 1:1 pode ser bom se o logo é quadrado. Teste se 4/3 ou 1/1 funciona melhor para o visual do logo dentro da imagem.
   },
-  {
-    title: "Brinque Brinque",
-    description: "Plataforma de brinquedos educativos com impacto social real.",
+{
+    title: "Carmax Baterias",
+    description: "Landing page voltada para serviços realizados na Carmax Baterias.",
     fullDescription:
-      "A Brinque Brinque conecta famílias e profissionais da infância a brinquedos com curadoria pedagógica. Com foco no desenvolvimento infantil e propósito educativo, a loja oferece uma experiência de compra afetuosa, acessível e com alto valor percebido.",
-    url: "https://www.brinquebrinque.com.br/",
-    image: "/images/projetos/brinquebrinque.png",
-    category: "Educação Infantil",
-    icon: Baby,
-    color: "text-red-400",
-    bgColor: "bg-red-400/10",
-    borderColor: "border-red-400/20",
+      "A Carmax Baterias é uma empresa de alta tecnologia no ramo automotivo, especializada em produtos de ponta, como baterias de última geração, som automotivo e alarmes. Sua plataforma digital é uma vitrine para seus serviços e um ponto de contato para a excelência automotiva.",
+    url: "https://www.carmaxbaterias.com.br/",
+    image: "/images/projetos/carmax-logo.jpg",
+    category: "Automotivo", // Alterei a categoria
+    icon: 'Bolt', // Altere o ícone para Bolt
+    color: "text-yellow-500", // Nova cor baseada em Carmax
+    bgColor: "bg-yellow-500/10", // Nova cor de fundo
+    borderColor: "border-yellow-500/20", // Nova cor da borda
     tech: ["Next.js", "Tailwind CSS", "Supabase", "Stripe"],
     results: [
-      "Vitrine com curadoria pedagógica",
-      "Checkout simples e funcional",
-      "Aumento da conversão por propósito",
-      "Expansão para modelo de afiliados",
+      "Vitrine de Produtos Otimizada", // Novo resultado
+      "Aumento na Geração de Leads", // Novo resultado
+      "Presença Digital Forte", // Novo resultado
+      "Comunicação Direta com o Cliente", // Novo resultado
     ],
-    imageAspect: "aspect-[4/3]", // Mantive 4/3 para Brinque Brinque.
+    imageAspect: "aspect-[4/3]",
   }
 ]
 
